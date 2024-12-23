@@ -18,3 +18,7 @@ vim.opt.shiftround = true
 vim.opt.expandtab = true
 
 vim.keymap.set('n', '<leader>h', ':nohlsearch<Cr>')
+
+-- Enable to copy/paste using system clipboard
+vim.api.nvim_set_option("clipboard","unnamed")
+vim.g.copilot_proxy_strict_ssl = false
