@@ -3,6 +3,11 @@ local IS_DEV = false
 -- Set the completition options for Copilot since I am using nvim version below 0.11.0
 vim.opt.completeopt:append({'noinsert', 'popup'})
 
+-- keymaps to open and close the copilot chat
+vim.keymap.set('n', '<leader>co', ':CopilotChat<Cr>')
+vim.keymap.set('n', '<leader>cf', ':CopilotChatClose<Cr>')
+
+
 local prompts = {
   -- Code related prompts
   Explain = "Please explain how the following code works.",
