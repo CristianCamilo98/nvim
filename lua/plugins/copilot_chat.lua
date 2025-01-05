@@ -4,7 +4,7 @@ local IS_DEV = false
 vim.opt.completeopt:append({'noinsert', 'popup'})
 
 -- keymaps to open and close the copilot chat
-vim.keymap.set('n', '<leader>co', ':CopilotChat<Cr>')
+vim.keymap.set('n', '<leader>co', ':CopilotChatToggle<Cr>')
 vim.keymap.set('n', '<leader>cf', ':CopilotChatClose<Cr>')
 
 
