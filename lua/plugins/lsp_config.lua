@@ -1,10 +1,22 @@
+local on_attach = function(_, bufnr)
+  local opts = { noremap=true, silent=true }
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+end
+
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = {"lua_ls", "terraformls", "jedi_language_server"},
+  ensure_installed = {"lua_ls", "terraformls", "pyright"},
 })
 
-require'lspconfig'.lua_ls.setup{}
-require'lspconfig'.terraformls.setup{}
-require'lspconfig'.jedi_language_server.setup{}
+require'lspconfig'.lua_ls.setup{
+  on_attach = on_attach
+}
+require'lspconfig'.terraformls.setup{
+  on_attach = on_attach
+}
+require'lspconfig'.jedi_language_server.setup{
+  on_attach = on_attach
+}
 
 vim.api.nvim_set_keymap('n', '<space>e', ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<space>q', ':lua vim.diagnostic.setloclist()<CR>', { noremap = true, silent = true })

@@ -1,4 +1,19 @@
-require('telescope').setup({ file_ignore_patterns = { "node%_modules/.*" } })
+require('telescope').setup({
+  defaults = {
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case',
+      '--no-ignore',
+    },
+    file_ignore_patterns = { "node_modules/.*" }
+  },
+})
+
 local builtin = require('telescope.builtin')
 
 vim.keymap.set('n', '<c-p>', builtin.find_files, {})

@@ -4,3 +4,7 @@
 ```
 sudo apt install ripgrep
 ```
+3. For lsp to work properly:
+```
+sudo apt install npm
+```
