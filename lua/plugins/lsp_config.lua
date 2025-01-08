@@ -14,7 +14,7 @@ require'lspconfig'.lua_ls.setup{
 require'lspconfig'.terraformls.setup{
   on_attach = on_attach
 }
-require'lspconfig'.jedi_language_server.setup{
+require'lspconfig'.pyright.setup{
   on_attach = on_attach
 }
 
