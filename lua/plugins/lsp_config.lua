@@ -1,6 +1,7 @@
 local on_attach = function(_, bufnr)
   local opts = { noremap=true, silent=true }
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  vim.api.nvim_set_keymap('n', 'gb', '<C-o>', { noremap = true, silent = true })
 end
 
 require("mason").setup()
