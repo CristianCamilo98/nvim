@@ -28,10 +28,18 @@ vim.g.copilot_proxy_strict_ssl = false
 vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = {'*.tf', '*.tfvars'},  -- Matches Terraform files
   callback = function()
-    -- Run terraform fmt using a shell command after saving
-    vim.fn.system('terraform fmt ' .. vim.fn.expand('%'))
-    -- Optionally reload the file to reflect changes
-    vim.cmd('edit')
+    -- Determine the available formatter (terraform or tofu)
+    local formatter = vim.fn.executable('terraform') == 1 and 'terraform' or (vim.fn.executable('tofu') == 1 and 'tofu' or nil)
+
+    if formatter then
+      -- Run the formatter using a shell command after saving
+      vim.fn.system(formatter .. ' fmt ' .. vim.fn.expand('%'))
+      -- Optionally reload the file to reflect changes
+      vim.cmd('edit')
+    else
+      -- Notify the user if neither formatter is available
+      vim.notify('Neither terraform nor tofu is installed!', vim.log.levels.ERROR)
+    end
   end
 })
 

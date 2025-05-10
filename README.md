@@ -8,3 +8,4 @@ sudo apt install ripgrep
 ```
 sudo apt install npm
 ```
+4. Install nodejs following guide [nodejs|https://nodejs.org/en/download/]

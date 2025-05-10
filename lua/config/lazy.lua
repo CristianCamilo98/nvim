@@ -20,13 +20,15 @@ vim.opt.rtp:prepend(lazypath)
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+vim.cmd([[highlight RedundantSpaces ctermbg=red guibg=red]])
+vim.cmd([[match RedundantSpaces /\s\+$/]])
 
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
     -- import your plugins
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-    "tpope/vim-commentary",
+    "numToStr/Comment.nvim",
     "nvim-tree/nvim-tree.lua",
     "nvim-tree/nvim-web-devicons",
     "nvim-lualine/lualine.nvim",
@@ -56,8 +58,8 @@ require("lazy").setup({
     },
     -- See Commands section for default commands if you want to lazy load on them
   },
-  "williamboman/mason.nvim",
-  "williamboman/mason-lspconfig.nvim",
+  {"williamboman/mason.nvim", version = "1.11.0"},
+  {"williamboman/mason-lspconfig.nvim", version = "1.32.0"},
   "neovim/nvim-lspconfig",
 
   },
