@@ -6,7 +6,8 @@ end
 
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = {"lua_ls", "terraformls", "pyright", "intelephense", "html", "gopls", "biome"},
+  automatic_enabled = false,
+  ensure_installed = {"lua_ls", "terraformls", "pyright", "gopls", "biome", "bashls"}
 })
 
 require'lspconfig'.lua_ls.setup{
@@ -30,6 +31,10 @@ require'lspconfig'.gopls.setup{
 }
 
 require'lspconfig'.biome.setup{
+  on_attach = on_attach
+}
+
+require'lspconfig'.bashls.setup{
   on_attach = on_attach
 }
 

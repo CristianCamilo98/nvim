@@ -58,9 +58,14 @@ require("lazy").setup({
     },
     -- See Commands section for default commands if you want to lazy load on them
   },
-  {"williamboman/mason.nvim", version = "1.11.0"},
-  {"williamboman/mason-lspconfig.nvim", version = "1.32.0"},
-  "neovim/nvim-lspconfig",
+  {
+    "mason-org/mason-lspconfig.nvim",
+    opts = {},
+    dependencies = {
+        { "mason-org/mason.nvim", opts = {} },
+        "neovim/nvim-lspconfig",
+    },
+  }
 
   },
   -- Configure any other settings here. See the documentation for more details.

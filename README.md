@@ -1,6 +1,7 @@
 # Dependencies
 1. Need to install lazyvim plugin, follow https://lazy.folke.io/installation
 2. For telescope grep to work properly:
+3. Nvim 0.11.3 or later is required.
 ```
 sudo apt install ripgrep
 ```
