@@ -6,37 +6,37 @@ end
 
 require("mason").setup()
 require("mason-lspconfig").setup({
-  automatic_enabled = false,
-  ensure_installed = {"lua_ls", "terraformls", "pyright", "gopls", "biome", "bashls"}
+  ensure_installed = {"lua_ls", "terraformls", "pyright", "gopls", "biome", "bashls"},
+  automatic_installation =  false,
+  automatic_setup = false,
+  automatic_enable = false,
+  handler = nil,
 })
 
-require'lspconfig'.lua_ls.setup{
+vim.lsp.config('lua_ls', {
   on_attach = on_attach
-}
-require'lspconfig'.terraformls.setup{
+})
+vim.lsp.config('terraformls', {
   on_attach = on_attach
-}
-require'lspconfig'.pyright.setup{
+})
+vim.lsp.config('pyright', {
   on_attach = on_attach
-}
-require'lspconfig'.intelephense.setup{
+})
+vim.lsp.config('intelephense', {
   on_attach = on_attach
-}
-require'lspconfig'.html.setup{
+})
+vim.lsp.config('html', {
   on_attach = on_attach
-}
-
-require'lspconfig'.gopls.setup{
+})
+vim.lsp.config('gopls', {
   on_attach = on_attach
-}
-
-require'lspconfig'.biome.setup{
+})
+vim.lsp.config('biome', {
   on_attach = on_attach
-}
-
-require'lspconfig'.bashls.setup{
+})
+vim.lsp.config('bashls', {
   on_attach = on_attach
-}
+})
 
 vim.api.nvim_set_keymap('n', '<space>e', ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<space>q', ':lua vim.diagnostic.setloclist()<CR>', { noremap = true, silent = true })

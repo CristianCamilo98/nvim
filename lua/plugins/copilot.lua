@@ -1,0 +1,23 @@
+require("copilot").setup({
+  suggestion = {
+    enabled = true,
+    auto_trigger = true,
+    accept = false,
+  },
+  panel = {
+    enabled = false
+  },
+  filetypes = {
+    ["*"] = true
+  },
+})
+
+vim.keymap.set("i", '<Tab>', function()
+  if require("copilot.suggestion").is_visible() then
+    require("copilot.suggestion").accept()
+  else
+    vim.api.nvim_feekeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
+  end
+end, {
+    silent = true,
+  })

@@ -5,8 +5,8 @@ require('lualine').setup {
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
-      statusline = {},
-      winbar = {},
+      statusline = {'Avante', 'AvanteInput', 'avante-input', 'avante-selected', 'avante-todos', 'AvanteSelected', 'AvanteTodos'},
+      winbar = {'Avante'},
     },
     ignore_focus = {},
     always_divide_middle = true,
